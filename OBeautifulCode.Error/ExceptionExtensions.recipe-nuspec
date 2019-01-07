@@ -1,0 +1,15 @@
+﻿<package>
+  <metadata>
+    <id>OBeautifulCode.Error.Recipes.ExceptionExtensions</id>
+    <description>Adds some error-related extension methods to exceptions.</description>
+    <tags>exception extension extensionmethod</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Error/master/OBeautifulCode.Error/nuget-icon.png</iconUrl>
+    <dependencies>
+      <dependency id="OBeautifulCode.Validation.Recipes.ParameterValidator" version="1.0.20" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="ExceptionExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Error\ExceptionExtensions.cs" />
+    <file src="Constants.cs" target="content\net462\.recipes\OBeautifulCode.Error\Constants.cs" />
+  </files>
+</package>
