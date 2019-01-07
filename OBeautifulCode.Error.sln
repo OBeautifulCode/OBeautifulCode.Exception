@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OBeautifulCode.Error", "OBeautifulCode.Error\OBeautifulCode.Error.csproj", "{A041C0BC-3523-427A-B1BC-FA0F8743BCDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OBeautifulCode.Error.Test", "OBeautifulCode.Error.Test\OBeautifulCode.Error.Test.csproj", "{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0E7D3DBE-854E-4266-B001-0F319995A68F}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A041C0BC-3523-427A-B1BC-FA0F8743BCDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A041C0BC-3523-427A-B1BC-FA0F8743BCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A041C0BC-3523-427A-B1BC-FA0F8743BCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A041C0BC-3523-427A-B1BC-FA0F8743BCDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6BA1E8E6-0EFA-4A4C-93FD-4BBEA27E202B}
+	EndGlobalSection
+EndGlobal
