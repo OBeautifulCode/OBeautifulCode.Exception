@@ -19,7 +19,7 @@ namespace OBeautifulCode.Error.Recipes.Test
     public static class ExceptionExtensionsTest
     {
         [Fact]
-        public static void AddErrorCode__Should_throw_ArgumentNullException_with_errorCode_added_to_Data___When_parameter_exception_is_null()
+        public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_exception_is_null()
         {
             // Arrange
             var errorCode = A.Dummy<string>();
@@ -30,30 +30,11 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
             actual.Message.Should().Contain("exception");
-            actual.Data.Keys.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
-            actual.Data[Constants.ExceptionDataKeyForErrorCode].Should().Be(errorCode);
-        }
-
-        [Fact]
-        public static void AddErrorCode__Should_throw_ArgumentNullException_with_errorCode_added_to_Data___When_parameter_exception_Data_is_null()
-        {
-            // Arrange
-            var errorCode = A.Dummy<string>();
-            var exception = new ExceptionWithNoData();
-
-            // Act
-            var actual = Record.Exception(() => exception.AddErrorCode(errorCode));
-
-            // Assert
-            actual.Should().BeOfType<ArgumentNullException>();
-            actual.Message.Should().Contain("exception.Data");
-            actual.Data.Keys.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
-            actual.Data[Constants.ExceptionDataKeyForErrorCode].Should().Be(errorCode);
         }
 
         [Fact]
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
-        public static void AddErrorCode__Should_throw_ArgumentNullException_without_errorCode_added_to_Data___When_parameter_errorCode_is_null()
+        public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_errorCode_is_null()
         {
             // Arrange
             var exception = new ArgumentException();
@@ -64,12 +45,11 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
             actual.Message.Should().Contain("errorCode");
-            actual.Data.Keys.Should().NotContain(Constants.ExceptionDataKeyForErrorCode);
         }
 
         [Fact]
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
-        public static void AddErrorCode__Should_throw_ArgumentNullException_without_errorCode_added_to_Data___When_parameter_errorCode_is_white_space()
+        public static void AddErrorCode__Should_throw_ArgumentException___When_parameter_errorCode_is_white_space()
         {
             // Arrange
             var errorCode = "  \r\n  ";
@@ -82,12 +62,110 @@ namespace OBeautifulCode.Error.Recipes.Test
             actual.Should().BeOfType<ArgumentException>();
             actual.Message.Should().Contain("errorCode");
             actual.Message.Should().Contain("white space");
-            actual.Data.Keys.Should().NotContain(Constants.ExceptionDataKeyForErrorCode);
         }
 
         [Fact]
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
-        public static void AddErrorCode__Should_throw_ArgumentException_with_errorCode_added_to_Data___When_parameter_exception_Data_already_contains_ExceptionDataKeyForErrorCode()
+        public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_dataKeyForErrorCode_is_null()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode, dataKeyForErrorCode: null));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentNullException>();
+            actual.Message.Should().Contain("dataKeyForErrorCode");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void AddErrorCode__Should_throw_ArgumentException___When_parameter_dataKeyForErrorCode_is_white_space()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode, dataKeyForErrorCode: "  \r\n  "));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentException>();
+            actual.Message.Should().Contain("dataKeyForErrorCode");
+            actual.Message.Should().Contain("white space");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_dataKeyForErrorCodesVector_is_null()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode, dataKeyForErrorCodesVector: null));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentNullException>();
+            actual.Message.Should().Contain("dataKeyForErrorCodesVector");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void AddErrorCode__Should_throw_ArgumentException___When_parameter_dataKeyForErrorCodesVector_is_white_space()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode, dataKeyForErrorCodesVector: "  \r\n  "));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentException>();
+            actual.Message.Should().Contain("dataKeyForErrorCodesVector");
+            actual.Message.Should().Contain("white space");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void AddErrorCode__Should_throw_ArgumentOutOfRangeException___When_parameter_dataKeyForErrorCodesVector_equals_dataKeyForErrorCode()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ArgumentException();
+            var key = A.Dummy<string>();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode, dataKeyForErrorCode: key, dataKeyForErrorCodesVector: key));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentOutOfRangeException>();
+            actual.Message.Should().Contain("dataKeyForErrorCode cannot equal dataKeyForErrorCodesVector");
+            actual.Message.Should().Contain(key);
+        }
+
+        [Fact]
+        public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_exception_Data_is_null()
+        {
+            // Arrange
+            var errorCode = A.Dummy<string>();
+            var exception = new ExceptionWithNoData();
+
+            // Act
+            var actual = Record.Exception(() => exception.AddErrorCode(errorCode));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentNullException>();
+            actual.Message.Should().Contain("exception.Data");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void AddErrorCode__Should_throw_ArgumentException___When_parameter_exception_Data_already_contains_ExceptionDataKeyForErrorCode()
         {
             // Arrange
             var errorCode = " a good code ";
@@ -101,13 +179,11 @@ namespace OBeautifulCode.Error.Recipes.Test
             actual.Should().BeOfType<ArgumentException>();
             actual.Message.Should().Contain("exception.Data.Keys");
             actual.Message.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
-            actual.Data.Keys.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
-            actual.Data[Constants.ExceptionDataKeyForErrorCode].Should().Be(errorCode);
         }
 
         [Fact]
         [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
-        public static void AddErrorCode__Should_throw_ArgumentException_with_errorCode_added_to_Data___When_parameter_exception_Data_already_contains_ExceptionDataKeyForErrorCodesVector()
+        public static void AddErrorCode__Should_throw_ArgumentException___When_parameter_exception_Data_already_contains_ExceptionDataKeyForErrorCodesVector()
         {
             // Arrange
             var errorCode = " a good code";
@@ -121,8 +197,6 @@ namespace OBeautifulCode.Error.Recipes.Test
             actual.Should().BeOfType<ArgumentException>();
             actual.Message.Should().Contain("exception.Data.Keys");
             actual.Message.Should().Contain(Constants.ExceptionDataKeyForErrorCodesVector);
-            actual.Data.Keys.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
-            actual.Data[Constants.ExceptionDataKeyForErrorCode].Should().Be(errorCode);
         }
 
         [Fact]
@@ -149,6 +223,37 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
             actual.Message.Should().Contain("exception");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCode___Should_throw_ArgumentNullException___When_parameter_dataKeyForErrorCode_is_null()
+        {
+            // Arrange
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.GetErrorCode(dataKeyForErrorCode: null));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentNullException>();
+            actual.Message.Should().Contain("dataKeyForErrorCode");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCode___Should_throw_ArgumentException___When_parameter_dataKeyForErrorCode_is_white_space()
+        {
+            // Arrange
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.GetErrorCode(dataKeyForErrorCode: " \r\n  "));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentException>();
+            actual.Message.Should().Contain("dataKeyForErrorCode");
+            actual.Message.Should().Contain("white space");
         }
 
         [Fact]
@@ -195,6 +300,23 @@ namespace OBeautifulCode.Error.Recipes.Test
         }
 
         [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCode___Should_return_error_code___When_error_code_was_added_to_exception_and_retrieved_from_exception_using_custom_dataKeyForErrorCode()
+        {
+            // Arrange,
+            var exception = new ArgumentException();
+            var dataKeyForErrorCode = A.Dummy<string>();
+            var expected = "this-is-an-ERROR_CODE";
+            exception.AddErrorCode(expected, dataKeyForErrorCode: dataKeyForErrorCode);
+
+            // Act
+            var actual = exception.GetErrorCode(dataKeyForErrorCode);
+
+            // Assert
+            actual.Should().Be(expected);
+        }
+
+        [Fact]
         public static void GetErrorCodesVector___Should_throw_ArgumentNullException___When_parameter_exception_is_null()
         {
             // Arrange, Act
@@ -203,6 +325,37 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
             actual.Message.Should().Contain("exception");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCodesVector___Should_throw_ArgumentNullException___When_parameter_dataKeyForErrorCodesVector_is_null()
+        {
+            // Arrange
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.GetErrorCodesVector(dataKeyForErrorCodesVector: null));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentNullException>();
+            actual.Message.Should().Contain("dataKeyForErrorCodesVector");
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCodesVector___Should_throw_ArgumentException___When_parameter_dataKeyForErrorCodesVector_is_white_space()
+        {
+            // Arrange
+            var exception = new ArgumentException();
+
+            // Act
+            var actual = Record.Exception(() => exception.GetErrorCodesVector(dataKeyForErrorCodesVector: " \r\n  "));
+
+            // Assert
+            actual.Should().BeOfType<ArgumentException>();
+            actual.Message.Should().Contain("dataKeyForErrorCodesVector");
+            actual.Message.Should().Contain("white space");
         }
 
         [Fact]
@@ -243,6 +396,23 @@ namespace OBeautifulCode.Error.Recipes.Test
 
             // Act
             var actual = exception.GetErrorCodesVector();
+
+            // Assert
+            actual.Should().Be(errorCode);
+        }
+
+        [Fact]
+        [SuppressMessage("Microsoft.Usage", "CA2208:InstantiateArgumentExceptionsCorrectly", Justification = "For testing purposes only.")]
+        public static void GetErrorCodesVector___Should_return_error_code_of_exception___When_error_code_was_added_to_and_retrieved_from_exception_using_custom_dataKeyForErrorCodesVector()
+        {
+            // Arrange,
+            var exception = new ArgumentException();
+            var dataKeyForErrorCodesVector = A.Dummy<string>();
+            var errorCode = A.Dummy<string>();
+            exception.AddErrorCode(errorCode, dataKeyForErrorCodesVector: dataKeyForErrorCodesVector);
+
+            // Act
+            var actual = exception.GetErrorCodesVector(dataKeyForErrorCodesVector);
 
             // Assert
             actual.Should().Be(errorCode);
