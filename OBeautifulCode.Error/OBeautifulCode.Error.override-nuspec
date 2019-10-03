@@ -1,7 +1,0 @@
-﻿<package>
-  <metadata>
-    <description>Provides error-related convenience/helper methods.</description>
-    <tags>error helper</tags>
-    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Error/master/OBeautifulCode.Error/nuget-icon.png</iconUrl>
-  </metadata>
-</package>

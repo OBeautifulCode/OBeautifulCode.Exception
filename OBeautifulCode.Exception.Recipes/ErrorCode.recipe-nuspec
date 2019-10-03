@@ -1,0 +1,12 @@
+﻿<package>
+  <metadata>
+    <id>OBeautifulCode.Exception.Recipes.ErrorCode</id>
+    <description>Adds extension methods on Exception related to error codes.</description>
+    <tags>exception extension errorcode error</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Exception/master/OBeautifulCode.Exception.Recipes/nuget-icon.png</iconUrl>
+  </metadata>
+  <files>
+    <file src="ErrorCodeExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Exception\ErrorCodeExtensions.cs" />
+    <file src="ErrorCodeConstants.cs" target="content\net462\.recipes\OBeautifulCode.Exception\ErrorCodeConstants.cs" />
+  </files>
+</package>

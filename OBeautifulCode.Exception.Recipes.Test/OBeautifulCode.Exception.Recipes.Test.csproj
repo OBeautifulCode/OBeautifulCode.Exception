@@ -8,8 +8,8 @@
     <ProjectGuid>{93D3840D-EF44-42C2-B7C3-DC2A40DC529C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OBeautifulCode.Error.Test</RootNamespace>
-    <AssemblyName>OBeautifulCode.Error.Test</AssemblyName>
+    <RootNamespace>OBeautifulCode.Exception.Recipes.Test</RootNamespace>
+    <AssemblyName>OBeautifulCode.Exception.Recipes.Test</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -26,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,6 +37,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoFixture, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
@@ -76,14 +78,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".recipes\OBeautifulCode.AutoFakeItEasy\AutoFakeItEasyBootstrapper.cs" />
-    <Compile Include="ExceptionExtensionsTest.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ErrorCodeExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OBeautifulCode.Error\OBeautifulCode.Error.csproj">
+    <ProjectReference Include="..\OBeautifulCode.Exception.Recipes\OBeautifulCode.Exception.Recipes.csproj">
       <Project>{a041c0bc-3523-427a-b1bc-fa0f8743bcdb}</Project>
-      <Name>OBeautifulCode.Error</Name>
+      <Name>OBeautifulCode.Exception.Recipes</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,10 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright file="ExceptionExtensionsTest.cs" company="OBeautifulCode">
+// <copyright file="ErrorCodeExtensionsTest.cs" company="OBeautifulCode">
 //   Copyright (c) OBeautifulCode 2018. All rights reserved.
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace OBeautifulCode.Error.Recipes.Test
+namespace OBeautifulCode.Exception.Recipes.Test
 {
     using System;
     using System.Collections;
@@ -16,7 +16,7 @@ namespace OBeautifulCode.Error.Recipes.Test
 
     using Xunit;
 
-    public static class ExceptionExtensionsTest
+    public static class ErrorCodeExtensionsTest
     {
         [Fact]
         public static void AddErrorCode__Should_throw_ArgumentNullException___When_parameter_exception_is_null()
@@ -25,7 +25,7 @@ namespace OBeautifulCode.Error.Recipes.Test
             var errorCode = A.Dummy<string>();
 
             // Act
-            var actual = Record.Exception(() => ExceptionExtensions.AddErrorCode(null, errorCode));
+            var actual = Record.Exception(() => ErrorCodeExtensions.AddErrorCode(null, errorCode));
 
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
@@ -170,7 +170,7 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Arrange
             var errorCode = " a good code ";
             var exception = new ArgumentException();
-            exception.Data[Constants.ExceptionDataKeyForErrorCode] = A.Dummy<object>();
+            exception.Data[ErrorCodeConstants.ExceptionDataKeyForErrorCode] = A.Dummy<object>();
 
             // Act
             var actual = Record.Exception(() => exception.AddErrorCode(errorCode));
@@ -178,7 +178,7 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentException>();
             actual.Message.Should().Contain("exception.Data.Keys");
-            actual.Message.Should().Contain(Constants.ExceptionDataKeyForErrorCode);
+            actual.Message.Should().Contain(ErrorCodeConstants.ExceptionDataKeyForErrorCode);
         }
 
         [Fact]
@@ -188,7 +188,7 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Arrange
             var errorCode = " a good code";
             var exception = new ArgumentException();
-            exception.Data[Constants.ExceptionDataKeyForErrorCodesVector] = A.Dummy<object>();
+            exception.Data[ErrorCodeConstants.ExceptionDataKeyForErrorCodesVector] = A.Dummy<object>();
 
             // Act
             var actual = Record.Exception(() => exception.AddErrorCode(errorCode));
@@ -196,7 +196,7 @@ namespace OBeautifulCode.Error.Recipes.Test
             // Assert
             actual.Should().BeOfType<ArgumentException>();
             actual.Message.Should().Contain("exception.Data.Keys");
-            actual.Message.Should().Contain(Constants.ExceptionDataKeyForErrorCodesVector);
+            actual.Message.Should().Contain(ErrorCodeConstants.ExceptionDataKeyForErrorCodesVector);
         }
 
         [Fact]
@@ -218,7 +218,7 @@ namespace OBeautifulCode.Error.Recipes.Test
         public static void GetErrorCode___Should_throw_ArgumentNullException___When_parameter_exception_is_null()
         {
             // Arrange, Act
-            var actual = Record.Exception(() => ExceptionExtensions.GetErrorCode(null));
+            var actual = Record.Exception(() => ErrorCodeExtensions.GetErrorCode(null));
 
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();
@@ -320,7 +320,7 @@ namespace OBeautifulCode.Error.Recipes.Test
         public static void GetErrorCodesVector___Should_throw_ArgumentNullException___When_parameter_exception_is_null()
         {
             // Arrange, Act
-            var actual = Record.Exception(() => ExceptionExtensions.GetErrorCodesVector(null));
+            var actual = Record.Exception(() => ErrorCodeExtensions.GetErrorCodesVector(null));
 
             // Assert
             actual.Should().BeOfType<ArgumentNullException>();

@@ -1,7 +1,6 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/qrgtovucl29dpxwu?svg=true)](https://ci.appveyor.com/project/SurajGupta/obeautifulcode-error)
+[![Build status](https://ci.appveyor.com/api/projects/status/kf9120avgtutlo0p?svg=true)](https://ci.appveyor.com/project/SurajGupta/obeautifulcode-exception)
 
-[![Nuget status](https://img.shields.io/nuget/v/OBeautifulCode.Error.Recipes.ExceptionExtensions.svg)](https://www.nuget.org/packages/OBeautifulCode.Error.Recipes.ExceptionExtensions)  OBeautifulCode.Error.Recipes.ExceptionExtensions
+[![Nuget status](https://img.shields.io/nuget/v/OBeautifulCode.Exception.Recipes.ErrorCode.svg)](https://www.nuget.org/packages/OBeautifulCode.Exception.Recipes.ErrorCode)  OBeautifulCode.Exception.Recipes.ErrorCode
 
-OBeautifulCode.Error
-====================
-This library contains code to deal with errors.
+OBeautifulCode.Exception
+========================
