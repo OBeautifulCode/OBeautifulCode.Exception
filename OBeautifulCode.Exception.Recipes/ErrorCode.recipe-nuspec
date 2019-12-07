@@ -6,6 +6,7 @@
     <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Exception/master/OBeautifulCode.Exception.Recipes/nuget-icon.png</iconUrl>
   </metadata>
   <files>
+    <file src=".analyzers\SuppressBecause.cs" target="content\net462\.recipes\OBeautifulCode.Exception\SuppressBecause.cs" />
     <file src="ErrorCodeExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Exception\ErrorCodeExtensions.cs" />
     <file src="ErrorCodeConstants.cs" target="content\net462\.recipes\OBeautifulCode.Exception\ErrorCodeConstants.cs" />
   </files>
