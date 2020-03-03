@@ -1,4 +1,4 @@
-﻿<package>
+<package>
   <metadata>
     <id>OBeautifulCode.Exception.Recipes.ErrorCode</id>
     <description>Adds extension methods on Exception related to error codes.</description>
