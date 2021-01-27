@@ -15,7 +15,7 @@ namespace OBeautifulCode.Equality.Recipes
 
     using OBeautifulCode.CodeAnalysis.Recipes;
 
-    using static System.FormattableString;
+    using static global::System.FormattableString;
 
     /// <summary>
     /// An implementation of <see cref="IEqualityComparer{T}"/> for any <see cref="IEnumerable{T}"/>.
@@ -25,8 +25,8 @@ namespace OBeautifulCode.Equality.Recipes
     /// </remarks>
     /// <typeparam name="T">The type of objects to enumerate.</typeparam>
 #if !OBeautifulCodeEqualitySolution
-    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-    [System.CodeDom.Compiler.GeneratedCode("OBeautifulCode.Equality.Recipes", "See package version number")]
+    [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [global::System.CodeDom.Compiler.GeneratedCode("OBeautifulCode.Equality.Recipes", "See package version number")]
     internal
 #else
     public
