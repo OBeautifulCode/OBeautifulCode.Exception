@@ -15,8 +15,8 @@ namespace OBeautifulCode.Exception.Recipes
     /// Extension methods on type <see cref="Exception"/>.
     /// </summary>
 #if !OBeautifulCodeExceptionSolution
-    [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
-    [System.CodeDom.Compiler.GeneratedCode("OBeautifulCode.Exception.Recipes", "See package version number")]
+    [global::System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
+    [global::System.CodeDom.Compiler.GeneratedCode("OBeautifulCode.Exception.Recipes", "See package version number")]
     internal
 #else
     public
