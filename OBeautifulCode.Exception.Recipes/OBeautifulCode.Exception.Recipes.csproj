@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include=".recipes\OBeautifulCode.CodeAnalysis\ObcSuppressBecause.cs" />
     <Compile Include="ErrorCodeConstants.cs" />
+    <Compile Include="ExceptionExtensions.cs" />
     <Compile Include="ErrorCodeExtensions.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +54,7 @@
   <ItemGroup>
     <AdditionalFiles Include=".analyzers\stylecop.json" />
     <None Include=".analyzers\release.ruleset" />
+    <None Include="ExceptionExtensions.recipe-nuspec" />
     <None Include="ErrorCode.recipe-nuspec" />
     <None Include="nuget-icon.png" />
     <None Include="packages.config" />

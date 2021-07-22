@@ -1,0 +1,14 @@
+<package>
+  <metadata>
+    <id>OBeautifulCode.Exception.Recipes.ExceptionExtensions</id>
+    <description>Adds extension methods on Exception.</description>
+    <tags>exception extension</tags>
+    <iconUrl>https://raw.githubusercontent.com/OBeautifulCode/OBeautifulCode.Exception/master/OBeautifulCode.Exception.Recipes/nuget-icon.png</iconUrl>
+    <dependencies>
+      <dependency id="OBeautifulCode.CodeAnalysis.Recipes.SuppressBecause" version="1.0.16" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="ExceptionExtensions.cs" target="content\net462\.recipes\OBeautifulCode.Exception\ExceptionExtensions.cs" />
+  </files>
+</package>
